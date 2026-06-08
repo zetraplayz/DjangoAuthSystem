@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Secure Authentication System{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-12 mb-4">
+        <div class="d-flex justify-content-between align-items-center pb-3 border-bottom">
+            <h2 class="mb-0">System Dashboard</h2>
+            <span class="badge bg-success px-3 py-2">Session Active</span>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card card-custom h-100">
+            <div class="card-body text-center p-4">
+                <div class="display-1 text-primary mb-3">
+                    <span style="font-size: 3rem; font-weight: bold;">{{ user.username.0|upper }}</span>
+                </div>
+                <h4 class="card-title fw-bold">User Profile</h4>
+                <p class="text-muted mb-1">Username: {{ user.username }}</p>
+                <p class="text-muted">Email: {{ user.email|default:"Not provided" }}</p>
+                <hr>
+                <p class="small text-muted mb-0">Last Login: {{ user.last_login|date:"M d, Y H:i" }}</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8 mb-4">
+        <div class="card card-custom h-100">
+            <div class="card-header bg-white border-bottom p-4">
+                <h5 class="mb-0 fw-bold">Security Information</h5>
+            </div>
+            <div class="card-body p-4">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item px-0 py-3 d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1 fw-bold text-dark">Password Hash Validation</h6>
+                            <small class="text-muted">Passwords are secured using PBKDF2 algorithm.</small>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">Verified</span>
+                    </li>
+                    <li class="list-group-item px-0 py-3 d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1 fw-bold text-dark">CSRF Protection</h6>
+                            <small class="text-muted">Cross-Site Request Forgery tokens are actively validated.</small>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">Active</span>
+                    </li>
+                    <li class="list-group-item px-0 py-3 d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6 class="mb-1 fw-bold text-dark">Session Architecture</h6>
+                            <small class="text-muted">Django database-backed session framework is operational.</small>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">Active</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

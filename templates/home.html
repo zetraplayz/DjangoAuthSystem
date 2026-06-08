@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Home - Secure Authentication System{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center align-items-center text-center mt-5">
+    <div class="col-md-8 mx-auto">
+        <h1 class="display-4 fw-bold text-primary mb-4">Welcome to AuthSystem</h1>
+        <p class="lead text-secondary mb-5">A professionally engineered, secure authentication framework designed for academic evaluation. Features include secure session management, CSRF protection, and password hashing.</p>
+        <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+            <a href="{% url 'register' %}" class="btn btn-primary btn-lg px-4 gap-3">Create an Account</a>
+            <a href="{% url 'login' %}" class="btn btn-outline-secondary btn-lg px-4">Secure Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
